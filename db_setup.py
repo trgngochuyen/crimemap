@@ -18,6 +18,6 @@ try:
             PRIMARY KEY (id)
         )"""
         cursor.execute(sql)
-        connection.commit()
-    finally:
-        connection.close()
+    connection.commit()
+finally:
+    connection.close()
