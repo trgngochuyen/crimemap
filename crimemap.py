@@ -1,7 +1,11 @@
-from dbhelper import DBHelper
-from flask import Flask
-from flask import render_template
 from flask import request
+from flask import render_template
+from flask import Flask
+import dbconfig
+if dbconfig.test:
+    from mockdbhelper import MockDBHelper as DBHelper
+else:
+    from dbhelper import DBHelper
 
 app = Flask(__name__)
 DB = DBHelper()
@@ -12,7 +16,7 @@ def home():
     try:
         data = DB.get_all_inputs()
     except Exception as e:
-        print e
+        print(e)
         data = None
     return render_template("home.html", data=data)
 
@@ -23,7 +27,7 @@ def add():
         data = request.form.get("userinput")
         DB.add_input(data)
     except Exception as e:
-        print e
+        print(e)
     return home()
 
 
@@ -32,7 +36,7 @@ def clear():
     try:
         DB.clear_all()
     except Exception as e:
-        print e
+        print(e)
     return home()
 
 
