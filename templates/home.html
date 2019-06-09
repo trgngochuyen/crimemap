@@ -20,7 +20,7 @@
              google.maps.event.addListener(map, 'click', function (event) {
                  placeMarker(event.latLng);
              });
-             placeCrimes('{{crimes | safe}}');
+             placeCrimes({{crimes | safe}});
          }
          console.log('checked!')
 
