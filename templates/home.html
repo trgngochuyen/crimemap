@@ -10,7 +10,7 @@
      <script type="text/javascript">
          var map;
          var marker;
-
+	
          function initialize() {
              var mapOptions = {
                  center: new google.maps.LatLng(-33.30578381949298, 26.523442268371582),
@@ -26,10 +26,11 @@
 
          function placeCrimes(crimes) {
              for (i = 0; i < crimes.length; i++) {
-                 crime = new google.maps.Marker({
+                crime = new google.maps.Marker({
                      position: new google.maps.LatLng(crimes[i].latitude, crimes[i].longitude),
                      map: map,
                      title: crimes[i].date + "\n" + crimes[i].category + "\n" + crimes[i].description
+			visible: true
                  });
              }
          }
