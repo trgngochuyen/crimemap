@@ -38,7 +38,6 @@ def submitcrime():
         longitude = float(request.form.get("longitude"))
     except ValueError:
         return home()
-    description = request.form.get("description")
     description = sanitize_string(request.form.get("description"))
     DB.add_crime(category, date, latitude, longitude, description)
     return home()
