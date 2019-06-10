@@ -52,7 +52,7 @@ def format_date(userdate):
 
 
 def sanitize_string(userinput):
-    whitelist = string.letters + string.digits + " !?$.,;:-'()&"
+    whitelist = string.ascii_letters + string.digits + " !?$.,;:-'()&"
     return filter(lambda x: x in whitelist, userinput)
 
 
