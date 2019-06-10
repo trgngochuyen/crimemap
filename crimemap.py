@@ -1,8 +1,9 @@
+
 import string
-import json
 from flask import request
 from flask import render_template
 from flask import Flask
+import json
 import dateparser
 import datetime
 import dbconfig
@@ -22,15 +23,6 @@ def home(error_message=None):
     crimes = DB.get_all_crimes()
     crimes = json.dumps(crimes)
     return render_template("home.html", crimes=crimes, categories=categories, error_message=error_message)
-
-
-@app.route("/clear")
-def clear():
-    try:
-        DB.clear_all()
-    except Exception as e:
-        print(e)
-    return home()
 
 
 @app.route("/submitcrime", methods=['POST'])
