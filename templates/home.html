@@ -2,15 +2,15 @@
  <html lang="en">
 
  <head>
-     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
-     </script>
+     <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js">
+     </script-->
      <script async defer
          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhkAaxwRRPL53ufHKqGWk9ayaHs5yvzFE&callback=initMap"
          type="text/javascript"></script>
      <script type="text/javascript">
          var map;
          var marker;
-
+	
          function initialize() {
              var mapOptions = {
                  center: new google.maps.LatLng(-33.30578381949298, 26.523442268371582),
@@ -20,20 +20,25 @@
              google.maps.event.addListener(map, 'click', function (event) {
                  placeMarker(event.latLng);
              });
+<<<<<<< HEAD
              placeCrimes({
                  {
                      crimes | safe
                  }
              });
+=======
+             placeCrimes({{crimes | safe}});
+>>>>>>> 0b83df3af74e69711a9511827e096a08d1cdd4cb
          }
          console.log('checked!')
 
          function placeCrimes(crimes) {
              for (i = 0; i < crimes.length; i++) {
-                 crime = new google.maps.Marker({
+                crime = new google.maps.Marker({
                      position: new google.maps.LatLng(crimes[i].latitude, crimes[i].longitude),
                      map: map,
                      title: crimes[i].date + "\n" + crimes[i].category + "\n" + crimes[i].description
+			visible: true
                  });
              }
          }
